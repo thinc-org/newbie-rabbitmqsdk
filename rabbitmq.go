@@ -9,6 +9,17 @@ import (
 	"time"
 )
 
+type RabbitMQConfig struct {
+	Host  string `mapstructure:"host"`
+	VHost string `mapstructure:"vhost"`
+}
+
+func InitRabbitMQConnection(conf *RabbitMQConfig) (*amqp.Connection, error) {
+	return amqp.DialConfig(conf.Host, amqp.Config{
+		Vhost: conf.VHost,
+	})
+}
+
 type RabbitMQ interface {
 	Close()
 	Listen() ([]byte, error)
