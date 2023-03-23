@@ -1,4 +1,4 @@
-module newbie-rabbitmqsdk
+module github.com/thinc-org/newbie-rabbitmqsdk
 
 go 1.20
 
