@@ -3,6 +3,38 @@ RabbitMQ SDK is the complete utils function for implement the publisher and subs
 
 # Getting Start
 
+## Connection
+### RabbitMQ
+
+return `*amqp.Connection` when successfully
+
+```go
+rabbitMQConn, err := gosdk.InitRabbitMQConnection(RabbitMQConfig)
+if err != nil {
+    // handle error
+}
+```
+
+**Parameters**
+
+| name            | description     |
+|-----------------|-----------------|
+| RabbitMQ Config | RabbitMQ config |
+
+
+**Configuration**
+
+```go
+type RabbitMQConfig struct {
+   Host  string `mapstructure:"host"`
+   VHost string `mapstructure:"vhost"`
+}
+```
+| name  | description                                                                  | example                            |
+|-------|------------------------------------------------------------------------------|------------------------------------|
+| Host  | The host of the rabbitmq in format `amqp://username:password@hostname:port/` | amqp://guest:guest@localhost:5672/ |
+| VHost | The virtual host name (default is `/`)   
+
 ## Initialization
 
 ```go
